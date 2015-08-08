@@ -51,12 +51,9 @@ void EncVelManager::SetLEDs(char force)
     ENC_GREEN_LED_OFF();
     ENC_RED_LED_OFF();
   }
-  // if we've crossed the midway point make sure lights are all the way off
-  else if (mPrevVelocityPercent < MID_VELOCITY ^ mVelocityPercent < MID_VELOCITY) {
-    SetAllLEDsOff();
-  }
   
   if (mVelocityPercent == MID_VELOCITY) {
+    SetAllLEDsOff();
     ENC_GREEN_LED_ON();
     ENC_RED_LED_ON();
   }
