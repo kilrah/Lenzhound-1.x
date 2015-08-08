@@ -62,6 +62,7 @@ void EncVelManager::SetLEDs(char force)
   }
   else if (mVelocityPercent > MID_VELOCITY) {
     int dim = map(mVelocityPercent, MID_VELOCITY + 1, MAX_VELOCITY, 1, 250);
+    analogWrite(SPEED_LED2, 0);
     analogWrite(SPEED_LED3, dim);
     if (mVelocityPercent == MAX_VELOCITY) {
       GREEN_LED_ON();
@@ -69,6 +70,7 @@ void EncVelManager::SetLEDs(char force)
   }
   else if (mVelocityPercent < MID_VELOCITY) {
     int dim = map(mVelocityPercent, MIN_VELOCITY, MID_VELOCITY - 1, 250, 1);
+    analogWrite(SPEED_LED3, 0);
     analogWrite(SPEED_LED2, dim);
     if (mVelocityPercent == MIN_VELOCITY) {
       RED_LED_ON();
